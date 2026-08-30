@@ -1,65 +1,54 @@
-# 🦅 Lammergeier — Unified Autonomous Drone System
+<h1 align="center">🦅 Lammergeier</h1>
 
-> ⚙️ **Project status: early design and planning.**
-> System architecture, hardware selection and communication models are being defined before active
-> development begins. There is no implementation in this repository yet.
+<p align="center">
+  <b>An autonomous drone framework where the radio is a detail.</b>
+</p>
 
-Lammergeier is a modular, all-in-one autonomous drone framework that puts flight control, PID
-stabilization, mission automation and centralized command under a single architecture.
+<p align="center">
+  <img src="https://img.shields.io/badge/stage-design-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/LoRa-2ea44f?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/UAV-1f6feb?style=for-the-badge" />
+</p>
 
-## The idea
+---
 
-Most drone stacks make you choose your radio early and then build around it. Swapping a Wi-Fi link
-for LoRa, or moving from digital telemetry to a high-power analog FPV setup, means reworking
-everything above the transport.
+> ⚙️ **Design stage.** Architecture, hardware selection and communication models are still being
+> defined. No implementation here yet.
 
-Lammergeier is being designed so the transport is a detail. Wi-Fi, LoRa, FPV or analog — the core
-structure stays the same, and the framework adapts to whatever hardware and environment it finds.
+Most drone stacks make you pick your radio early and then build around it. Swap Wi-Fi for LoRa, or
+move to a high-power analog FPV setup, and you're reworking everything above the transport.
+
+Lammergeier puts flight control, PID stabilization, mission automation and ground command under
+**one architecture** — and keeps the transport swappable underneath it.
 
 ## Goals
 
-- **One architecture, not four.** Flight control, stabilization, mission logic and ground command as
-  parts of a single system rather than separately integrated projects.
-- **Transport independence.** Wi-Fi, LoRa, FPV, high-power analog — swappable without touching the
-  layers above.
-- **Manual and autonomous in the same stack.** Full pilot control and fully autonomous missions,
-  with the handover between them designed in rather than bolted on.
-- **Scalable and open.** Usable from a single airframe up to a coordinated group.
-- **Hardware-adaptive.** Sensor and transmitter configuration discovered and accommodated at
-  runtime where possible.
+- **One stack, not four.** Control, stabilization, mission logic and command as parts of a system.
+- **Transport independence.** Wi-Fi · LoRa · FPV · analog, without touching the layers above.
+- **Manual and autonomous together.** The handover designed in, not bolted on.
+- **Hardware-adaptive.** Discover and accommodate the sensors and transmitters it finds.
 
-## Planned scope
+## Where it's going
 
-| Area | What it covers |
+| | |
 |---|---|
-| Flight control | Attitude and rate loops, PID stabilization, failsafe behaviour |
-| Mission automation | Waypoints, mission state machine, autonomous decision-making |
-| Communication | Transport abstraction over Wi-Fi / LoRa / FPV / analog links |
-| Command station | Centralized monitoring and control for one or more aircraft |
-| Hardware layer | Sensor and transmitter abstraction |
+| **0** — Design *(current)* | Architecture, hardware, comms model |
+| **1** — Core | Attitude/rate loops, PID, failsafe on one airframe |
+| **2** — Transport | The abstraction that makes the radio swappable |
+| **3** — Autonomy | Waypoints, mission state machine |
+| **4** — Command | Centralized ground station |
 
-## Roadmap
+## Related
 
-| Phase | Goal |
-|---|---|
-| **0 — Design** *(current)* | Architecture, hardware selection, communication model |
-| **1 — Core** | Flight control and stabilization on a single airframe |
-| **2 — Transport layer** | The abstraction that makes the radio swappable |
-| **3 — Autonomy** | Mission automation and autonomous flight |
-| **4 — Command** | Centralized ground station |
-
-## Related work
-
-- [**gen-fsm**](https://github.com/byte-me-pls/gen-fsm) — `no_std` stochastic-genetic state machine
-  for embedded autonomy; its `drone_nav` example is the navigation study behind this.
-- [**alkor-simulation**](https://github.com/byte-me-pls/alkor-simulation) — Rotating Leader
-  consensus over a LoRa mesh, simulating the kind of link Lammergeier targets.
+**[gen-fsm](https://github.com/byte-me-pls/gen-fsm)** — the `no_std` navigation study behind this ·
+**[alkor-simulation](https://github.com/byte-me-pls/alkor-simulation)** — consensus over the kind of
+LoRa mesh this targets
 
 ## Contributing
 
-The project is still at the design stage, so the most useful contribution right now is discussion —
-open an issue if you have experience with any of the areas above.
+Still at the design stage, so the useful contribution right now is **discussion**. Open an issue if
+you've worked on any of the above.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT
