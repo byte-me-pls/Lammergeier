@@ -19,7 +19,7 @@ Most drone stacks make you pick your radio early and then build around it. Swap 
 move to a high-power analog FPV setup, and you're reworking everything above the transport.
 
 Lammergeier puts flight control, PID stabilization, mission automation and ground command under
-**one architecture** — and keeps the transport swappable underneath it.
+**one architecture**, and keeps the transport swappable underneath it.
 
 ## Goals
 
@@ -32,16 +32,16 @@ Lammergeier puts flight control, PID stabilization, mission automation and groun
 
 | | |
 |---|---|
-| **0** — Design *(current)* | Architecture, hardware, comms model |
-| **1** — Core | Attitude/rate loops, PID, failsafe on one airframe |
-| **2** — Transport | The abstraction that makes the radio swappable |
-| **3** — Autonomy | Waypoints, mission state machine |
-| **4** — Command | Centralized ground station |
+| **0. Design** *(current)* | Architecture, hardware, comms model |
+| **1. Core** | Attitude/rate loops, PID, failsafe on one airframe |
+| **2. Transport** | The abstraction that makes the radio swappable |
+| **3. Autonomy** | Waypoints, mission state machine |
+| **4. Command** | Centralized ground station |
 
 ## Related
 
-**[gen-fsm](https://github.com/byte-me-pls/gen-fsm)** — the `no_std` navigation study behind this ·
-**[alkor-simulation](https://github.com/byte-me-pls/alkor-simulation)** — consensus over the kind of
+**[gen-fsm](https://github.com/byte-me-pls/gen-fsm)**: the `no_std` navigation study behind this ·
+**[alkor-simulation](https://github.com/byte-me-pls/alkor-simulation)**: consensus over the kind of
 LoRa mesh this targets
 
 ## Contributing
